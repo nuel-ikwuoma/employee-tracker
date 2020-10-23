@@ -1,38 +1,44 @@
 // emplyee display component
 import React from 'react';
+import {Table, Container, Button} from 'react-bootstrap';
+import './employeeList.css';
+
 const EmployeeList = ({ entries }) => {
   return (
     <div>
-      <h1>Employees Details</h1>
+      <h1 className="my-4">Employees Details</h1>
       <div>
-        <table cellpadding='0' cellspacing='0' border='0'>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Mobile</th>
-              <th>City</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>
-            {entries.employees.map((entry) => (
+        <Container>
+
+          <Table striped bordered hover responsive variant="dark">
+            <thead>
               <tr>
-                <td>{entry.id}</td>
-                <td>{entry.fname}</td>
-                <td>{entry.lname}</td>
-                <td>{entry.email}</td>
-                <td>{entry.tel}</td>
-                <td>{entry.city}</td>
-                <td className='action-btn'>
-                  <button>Edit</button> :<button>Delete</button>
-                </td>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>City</th>
+                <th>Options</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {entries.employees.map((entry) => (
+                <tr>
+                  <td>{entry.id}</td>
+                  <td>{entry.fname}</td>
+                  <td>{entry.lname}</td>
+                  <td>{entry.email}</td>
+                  <td>{entry.tel}</td>
+                  <td>{entry.city}</td>
+                  <td className='action-btn'>
+                    <Button variant="primary">Edit</Button> <Button variant="danger">Delete</Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Container>
       </div>
     </div>
   );

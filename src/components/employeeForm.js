@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Container, Button } from 'react-bootstrap';
 
 let ID = 100;
 
@@ -21,7 +22,83 @@ const EmployeeForm = ({ entries, saveCallback }) => {
 
   return (
     <div>
-      <form onSubmit={submitCallback}>
+
+    <Container>
+
+      <h2 className="my-2">Enter Employee Details</h2>
+
+      <Form className="p-5" onSubmit={submitCallback}>
+        <Form.Group controlId="formFirstName">
+          <Form.Label >FirstName</Form.Label>
+          {/* <p className="text-left lead">FirstName</p> */}
+          <Form.Control 
+            type="text"
+            name="fname"
+            placeholder="FirstName"
+            onChange={changeCallback}
+            value={formData.fname}
+            required 
+            />
+        </Form.Group>
+
+        <Form.Group>
+          <p className="text-left lead">LastName</p>
+          <Form.Control 
+            type="text"
+            name="lname"
+            placeholder="LastName"
+            onChange={changeCallback}
+            value={formData.lname}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <p className="text-left lead">Email</p>
+          <Form.Control 
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={changeCallback}
+            value={formData.email}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <p className="text-left lead">Telephone Number</p>
+          <Form.Control 
+            type="number"
+            name="tel"
+            placeholder="Phone Number"
+            onChange={changeCallback}
+            value={formData.tel}
+            required
+          />
+        </Form.Group>
+        
+        <Form.Group>
+          <p className="text-left lead">City</p>
+          <Form.Control 
+            type="text"
+            name="city"
+            placeholder="City"
+            onChange={changeCallback}
+            value={formData.city}
+            reqiured
+          />
+        </Form.Group>
+
+        <Button type="submit" variant="success">
+          Submit
+        </Button>
+
+      </Form>
+      
+    </Container>
+
+
+      {/* <form onSubmit={submitCallback}>
         <label>
           First Name
           <input
@@ -68,7 +145,7 @@ const EmployeeForm = ({ entries, saveCallback }) => {
           />
         </label>
         <button type='submit'>Submit</button>
-      </form>
+      </form> */}
     </div>
   );
 };
