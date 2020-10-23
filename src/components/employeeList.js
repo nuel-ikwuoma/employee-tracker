@@ -1,7 +1,6 @@
 // emplyee display component
 import React from 'react';
 import {Table, Container, Button} from 'react-bootstrap';
-import './employeeList.css';
 
 const EmployeeList = ({ entries }) => {
   return (
