@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Container, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
-let ID = 100;
+let ID = 1;
 
 const EmployeeForm = ({ entries, saveCallback }) => {
+
+  //this is for redirecting to home page
+  const history = useHistory();
+
   const initState = { fname: '', lname: '', email: '', tel: 0, city: '' };
   const [formData, setFormData] = useState(initState);
+
+  
 
   const changeCallback = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,6 +25,8 @@ const EmployeeForm = ({ entries, saveCallback }) => {
     saveCallback(computedState);
     setFormData(initState);
     e.preventDefault();
+    //this redirects to the home page after submitting
+    history.push('/')
   };
 
   return (
