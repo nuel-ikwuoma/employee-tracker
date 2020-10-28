@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {EmployeeList} from './components/employeeList'
 import {EmployeeForm} from './components/employeeForm'
-import {Selector} from './components/selector';
 import Header from './components/Header';
 // import logo from './logo.svg';
 import './App.css';
 //router imports
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-
 
 import initData from './initialData';
 
@@ -16,6 +13,15 @@ function App() {
   // for some weird reasons, i put the initial app state here
   // im a jnr dev, pls bear with me and refactor it, tnks!.
   const [employeeData, setEmployeeData] = useState(initData);
+
+  //use this below to see the stored data 
+  // console.log(employeeData.employees);
+
+  //for setting to localStorage
+  useEffect(() => {
+    localStorage.setItem("employeeDetails", JSON.stringify(employeeData.employees))
+  }, [employeeData])
+  
   return (
     <div className='App'>
       <Router>

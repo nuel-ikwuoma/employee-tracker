@@ -7,18 +7,22 @@ const Header = () => {
     return ( 
         <>
             <Navbar bg="dark" expand="lg" variant="dark">
-                <Navbar.Brand href="#home">Employee Register</Navbar.Brand>
+                <Navbar.Brand >
+                    <Link style={{color: "white", textDecoration:"none"}} to="/">
+                        Employee Register
+                    </Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                            <Nav.Link style={{ color: "white !important" }} >
-                                <Link to="/form">
+                            <Nav.Link  >
+                                <Link style={{textDecoration: "none"}} to="/form">
                                     Add Employee
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link >
-                                <Link to="/employeelist">
+                                <Link style={{textDecoration: "none"}} to="/employeelist">
                                     Employee List
                                 </Link>
                             </Nav.Link>

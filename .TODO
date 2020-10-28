@@ -1,4 +1,4 @@
-1. submit shld route back to homepage
+1. submit shld route back to homepage ✔️
 2. browser storage for data persistence
 3. implement edit/delete features
 4. use Redux for state management
