@@ -1,33 +1,30 @@
 import React, { useState } from 'react';
-import {EmployeeList} from './components/employeeList'
-import {EmployeeForm} from './components/employeeForm'
-import {Selector} from './components/selector';
+import { EmployeeList } from './components/employeeList';
+import { EmployeeForm } from './components/employeeForm';
 import Header from './components/Header';
-// import logo from './logo.svg';
 import './App.css';
 //router imports
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-
-
 import initData from './initialData';
 
 function App() {
-  // for some weird reasons, i put the initial app state here
-  // im a jnr dev, pls bear with me and refactor it, tnks!.
   const [employeeData, setEmployeeData] = useState(initData);
+
   return (
     <div className='App'>
       <Router>
-      <Header />
+        <Header />
         <Switch>
-
-
-          <Route path="/employeelist">
-            <EmployeeList entries={employeeData} name='employeelist' />
+          <Route path='/employeelist'>
+            <EmployeeList
+              entries={employeeData}
+              saveCallback={setEmployeeData}
+              name='employeelist'
+            />
           </Route>
 
-          <Route path="/form">
+          <Route path='/form'>
             <EmployeeForm
               saveCallback={setEmployeeData}
               entries={employeeData}
@@ -35,13 +32,15 @@ function App() {
             />
           </Route>
 
-          <Route path="/">
+          <Route path='/'>
             <h1>Home page</h1>
-            <p>I am still learning design, you can help design the home page Sire 😄</p>
+            <p>
+              I am still learning design, you can help design the home page Sire
+              😄
+            </p>
           </Route>
-
         </Switch>
-      </Router>    
+      </Router>
     </div>
   );
 }
